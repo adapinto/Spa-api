@@ -39,6 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Django REST framework 
     'rest_framework',
+    # Tutorials application 
+    'tutorials.apps.TutorialsConfig',
+    # CORS
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -49,7 +53,15 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # CORS
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:8081',
+)
 
 ROOT_URLCONF = 'DjangoRestApiMongoDB.urls'
 
