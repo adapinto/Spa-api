@@ -1,6 +1,5 @@
 from rest_framework import serializers
-from spa-web-api.models import Cliente, Empleado, Sucursales, Cita, Genero, Tratamiento, TipoTratamiento, CitaEmpleado, Alergias, AlergiasCliente
-
+from SpaWebApi.models import Cliente, Empleado, Sucursales, Cita, Genero, Tratamiento, TipoTratamiento, CitaEmpleado, Alergias, AlergiasCliente
 
 
 class ClienteSerializer(serializers.ModelSerializer):

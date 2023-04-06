@@ -59,8 +59,10 @@ class AlergiaCliente(models.Model):
 
 
 class TipoTratamiento(models.Model):
-    descripcion = models.CharField(max_length=200)
-    id_tratamiento = models.ForeignKey(Tratamiento, on_delete=models.CASCADE)
+    id = models.AutoField(primary_key=True)
+    id_tratamiento = models.IntegerField(unique=True)
+    seleccionado = models.BooleanField(default=False)
+    descripcion = models.CharField(max_length=255)
 
     def __str__(self):
         return self.descripcion
@@ -82,3 +84,12 @@ class CitaCliente(models.Model):
 
     def __str__(self):
         return self.id_cliente.nombre + " " + self.id_cita.fecha+ " " + self.id_cita.hora
+    
+class CitaTipoTratamiento(models.Model):
+    id = models.AutoField(primary_key=True)
+    id_cita = models.ForeignKey(Cita, on_delete=models.CASCADE)
+    id_tratamiento = models.IntegerField()
+    tratamiento_seleccionado = models.BooleanField()
+
+    def __str__(self):
+        return self.tratamiento_seleccionado
