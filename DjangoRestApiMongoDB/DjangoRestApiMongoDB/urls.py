@@ -17,5 +17,5 @@ from django.conf.urls import include
 from django.urls import re_path
 
 urlpatterns = [
-     re_path(r'^', include('spa-web-api.urls')),
+     re_path(r'^', include('SpaWebApi.urls')),
 ]
