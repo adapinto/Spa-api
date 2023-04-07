@@ -46,9 +46,14 @@ class TratamientoSerializer(serializers.ModelSerializer):
 class TipoTratamientoSerializer(serializers.ModelSerializer):
     class Meta:
         model = TipoTratamiento
-        fields = ('id','id_Tratamiento', 'descripcion')
+        fields = ('id','id_Tratamiento','seleccionado', 'descripcion')
         
 class CitaEmpleadoSerializer(serializers.ModelSerializer):
     class Meta:
         model = CitaEmpleado
         fields = ('id','id_empleado', 'id_cita')
+        
+class CitaTipoTratamientoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CitaEmpleado
+        fields = ('id','id_tratamiento', 'id_cita','tratamiento_seleccionado')
